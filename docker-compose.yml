@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   mongodb:
-    image: mongo:6.0
-    platform: linux/amd64
+    image: mongo:4.4
     container_name: apartment-listing-mongodb
     restart: always
     volumes:
@@ -24,7 +23,7 @@ services:
     ports:
       - "4000:4000"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
       - PORT=4000
       - MONGODB_URI=mongodb://mongodb:27017/apartment-listing
     depends_on:

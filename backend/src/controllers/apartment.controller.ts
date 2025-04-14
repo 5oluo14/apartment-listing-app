@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Apartment, { IApartment } from '../models/apartment.model';
+import Apartment from '../models/apartment.model';
 
 
 export const getApartments = async (req: Request, res: Response): Promise<void> => {

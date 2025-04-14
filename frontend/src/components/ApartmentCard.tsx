@@ -8,16 +8,20 @@ interface ApartmentCardProps {
     apartment: Apartment;
 }
 
+const getApartmentImage = (id: string) => {
+    // Use the last digit of the ID to determine which image to use
+    const lastDigit = parseInt(id.slice(-1), 10);
+    return lastDigit % 2 === 0 ? '/apartments/apartment1.jpg' : '/apartments/apartment2.jpg';
+};
+
 export const ApartmentCard: React.FC<ApartmentCardProps> = ({ apartment }) => {
     return (
         <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
             <div className="relative h-48 w-full">
-                <Image
-                    src={apartment.images[0] || 'https://via.placeholder.com/400x300?text=No+Image+Available'}
+                <img
+                    src={getApartmentImage(apartment._id)}
                     alt={apartment.unitName}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-opacity hover:opacity-90"
+                    className="w-full h-full object-cover transition-opacity hover:opacity-90"
                 />
             </div>
             <div className="p-4">

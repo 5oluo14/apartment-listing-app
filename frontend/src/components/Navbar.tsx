@@ -7,7 +7,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();  // Use usePathname instead of useRouter().pathname
+    const pathname = usePathname();  
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -66,11 +66,6 @@ export const Navbar = () => {
                             } text-white block px-3 py-2 rounded-md text-base font-medium`}
                             onClick={toggleMenu}>
                             Apartments
-                        </Link>
-                        <Link href="/about" className={`${pathname === '/about' ? 'bg-blue-700' : 'hover:bg-blue-500'
-                            } text-white block px-3 py-2 rounded-md text-base font-medium`}
-                            onClick={toggleMenu}>
-                            About
                         </Link>
                     </div>
                 </div>
