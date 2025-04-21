@@ -18,6 +18,7 @@ export default function ApartmentDetailPage() {
     const [error, setError] = useState<string | null>(null);
     const [activeImage, setActiveImage] = useState(0);
 
+    const apartmentImages = ['/apartments/apartment1.jpg', '/apartments/apartment2.jpg'];
     useEffect(() => {
         const fetchApartment = async () => {
             try {
@@ -77,7 +78,7 @@ export default function ApartmentDetailPage() {
                     <div className="md:w-1/2">
                         <div className="relative h-80 w-full">
                             <Image
-                                src={apartment.images[activeImage] || 'https://via.placeholder.com/800x600?text=No+Image+Available'}
+                                src={apartmentImages[activeImage]}
                                 alt={`${apartment.unitName} - Image ${activeImage + 1}`}
                                 layout="fill"
                                 objectFit="cover"
@@ -85,9 +86,9 @@ export default function ApartmentDetailPage() {
                             />
                         </div>
 
-                        {apartment.images.length > 1 && (
+                        {apartmentImages.length > 1 && (
                             <div className="flex overflow-x-auto p-2 space-x-2">
-                                {apartment.images.map((image, index) => (
+                                {apartmentImages.map((image, index) => (
                                     <button
                                         key={index}
                                         onClick={() => setActiveImage(index)}

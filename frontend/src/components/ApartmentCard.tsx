@@ -18,10 +18,12 @@ export const ApartmentCard: React.FC<ApartmentCardProps> = ({ apartment }) => {
     return (
         <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
             <div className="relative h-48 w-full">
-                <img
+                <Image
                     src={getApartmentImage(apartment._id)}
                     alt={apartment.unitName}
                     className="w-full h-full object-cover transition-opacity hover:opacity-90"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
             </div>
             <div className="p-4">
