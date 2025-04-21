@@ -15,12 +15,21 @@ export const getApartments = async (req: Request, res: Response): Promise<void> 
       query = { $text: { $search: search as string } };
     }
 
+    const total = await Apartment.countDocuments(query);
+
+    if (total === 0) {
+      res.status(200).json({
+        success: true,
+        data: [],
+        pagination: { total, page: pageNumber, limit: limitNumber, pages: 0 },
+      });
+    }
+    
     const apartments = await Apartment.find(query)
       .skip(skip)
       .limit(limitNumber)
       .sort({ createdAt: -1 });
 
-    const total = await Apartment.countDocuments(query);
 
     res.status(200).json({
       success: true,
