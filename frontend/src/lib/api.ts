@@ -10,7 +10,7 @@ const api = axios.create({
     },
 });
 
-export const getApartments = async (search?: string, page = 1, limit = 10): Promise<ApiResponse<Apartment[]>> => {
+export const getApartments = async (page = 1, limit = 10, search?: string): Promise<ApiResponse<Apartment[]>> => {
     try {
         let url = `/apartments?page=${page}&limit=${limit}`;
         if (search) {

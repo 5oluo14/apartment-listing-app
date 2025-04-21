@@ -9,7 +9,7 @@ interface ApartmentCardProps {
 }
 
 const getApartmentImage = (id: string) => {
-    // Use the last digit of the ID to determine which image to use
+   
     const lastDigit = parseInt(id.slice(-1), 10);
     return lastDigit % 2 === 0 ? '/apartments/apartment1.jpg' : '/apartments/apartment2.jpg';
 };

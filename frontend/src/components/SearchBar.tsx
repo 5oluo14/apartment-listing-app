@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 interface SearchBarProps {
@@ -13,6 +13,10 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialValue = '
         e.preventDefault();
         onSearch(query);
     };
+
+    useEffect(() => {
+        onSearch(query);
+    }, [query]);
 
     return (
         <form onSubmit={handleSearch} className="w-full max-w-xl mx-auto mb-8">

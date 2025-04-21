@@ -1,7 +1,7 @@
-"use client";  // Add this at the top
+"use client"; 
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';  // Change this from next/router
+import { usePathname } from 'next/navigation';  
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -33,10 +33,6 @@ export const Navbar = () => {
                             <Link href="/apartments" className={`${pathname.startsWith('/apartments') ? 'bg-blue-700' : 'hover:bg-blue-500'
                                 } text-white px-3 py-2 rounded-md text-sm font-medium`}>
                                 Apartments
-                            </Link>
-                            <Link href="/about" className={`${pathname === '/about' ? 'bg-blue-700' : 'hover:bg-blue-500'
-                                } text-white px-3 py-2 rounded-md text-sm font-medium`}>
-                                About
                             </Link>
                         </div>
                     </div>

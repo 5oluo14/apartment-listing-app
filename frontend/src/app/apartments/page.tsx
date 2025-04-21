@@ -19,7 +19,7 @@ export default function ApartmentsPage() {
     const fetchApartments = async () => {
         try {
             setLoading(true);
-            const response = await getApartments(searchQuery, currentPage);
+            const response = await getApartments(currentPage, 10, searchQuery);
             setApartments(response.data);
             setTotalPages(response.pagination?.pages || 1);
             setError(null);

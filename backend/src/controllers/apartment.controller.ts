@@ -12,7 +12,7 @@ export const getApartments = async (req: Request, res: Response): Promise<void> 
     let query = {};
 
     if (search) {
-      query = { $text: { $search: search as string } };
+      query = { title: { $regex: search as string, $options: 'i' } };
     }
 
     const total = await Apartment.countDocuments(query);
